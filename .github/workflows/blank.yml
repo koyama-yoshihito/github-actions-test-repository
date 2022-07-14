@@ -33,8 +33,3 @@ jobs:
           echo github.event_path: ${{ github.event_path }}
           echo ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
           echo $name
-
-      - name: Slack webhook
-        if: failure()
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/${{secrets.SLACK_WEBHOOK}}
